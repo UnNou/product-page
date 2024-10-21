@@ -1,51 +1,40 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 
-const ProductComponent = () => {
-    const productNames = ['Corsair K65 RGB', 'Corsair Vengeance LPX', 'Corsair H100i'];
-    const productPrices = [130, 80, 150];
+const ProductComponent = ({ products, selectedProduct, setSelectedProduct }) => {
 
-    const [selectedIndex, setSelectedIndex] = useState(0);
-    const [quantity, setQuantity] = useState(0);
-
-    const handleChange = (event) => {
-        setSelectedIndex(event.target.value);
-        setQuantity(0);
+    const handleProductChange = (event) => {
+        const selectedIndex = event.target.value;
+        const selectedProduct = products[selectedIndex];
+        setSelectedProduct({ ...selectedProduct, quantity: 1 });
     };
 
-    const increaseQuantity = () => {
-        setQuantity((prev) => prev + 1);
-    };
-
-    const decreaseQuantity = () => {
-        setQuantity((prev) => (prev > 0 ? prev - 1 : 0));
+    
+    const handleQuantityChange = (change) => {
+        setSelectedProduct((prev) => ({
+            ...prev,
+            quantity: Math.max(0, prev.quantity + change) 
+        }));
     };
 
     return (
         <div className="product-component">
             <h2>Select a Product</h2>
-            <select value={selectedIndex} onChange={handleChange}>
-                {productNames.map((name, index) => (
+            
+            <select value={products.findIndex(p => p.name === selectedProduct.name)} onChange={handleProductChange}>
+                {products.map((product, index) => (
                     <option key={index} value={index}>
-                        {name}
+                        {product.name}
                     </option>
                 ))}
             </select>
 
             <div className="quantity-control">
-                <button onClick={decreaseQuantity}>-</button>
-                <span>Quantity: {quantity}</span>
-                <button onClick={increaseQuantity}>+</button>
+                <button onClick={() => handleQuantityChange(-1)}>-</button>
+                <span>Quantity: {selectedProduct.quantity}</span>
+                <button onClick={() => handleQuantityChange(1)}>+</button>
             </div>
-
-            <h3>
-                {productNames[selectedIndex]}: ${productPrices[selectedIndex].toFixed(2)}
-            </h3>
         </div>
     );
-};
-
-ProductComponent.propTypes = {
 };
 
 export default ProductComponent;

@@ -10,12 +10,10 @@ const Header = ({ image, title }) => {
     );
 };
 
-// Prop type validation for better error handling
 Header.propTypes = {
-    image: PropTypes.string.isRequired, // Ensure that the image is a string
-    title: PropTypes.string.isRequired,  // Ensure that the title is a string
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
 };
-
 
 
 export default Header;
