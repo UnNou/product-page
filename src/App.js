@@ -3,6 +3,7 @@ import Header from './components/HeaderComponent';
 import vaahtera from './components/vaahtera.webp';
 import ProductComponent from './components/ProductFormComponent';
 import OrderInfoComponent from './components/OrderInfoComponent';
+import './App.css';
 
 function App() {
   const products = [
@@ -24,7 +25,7 @@ function App() {
                 selectedProduct={selectedProduct}
                 setSelectedProduct={setSelectedProduct}
             />
-          <OrderInfoComponent product={selectedProduct} />
+          <OrderInfoComponent product={selectedProduct} /> 
       </div>
   );
 }
