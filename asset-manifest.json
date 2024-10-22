@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/product-page/static/css/main.d28ac45c.css",
+    "main.js": "/product-page/static/js/main.1608bb3b.js",
+    "static/js/453.b970d112.chunk.js": "/product-page/static/js/453.b970d112.chunk.js",
+    "static/media/vaahtera.webp": "/product-page/static/media/vaahtera.0df9cb7b08f950fe750d.webp",
+    "index.html": "/product-page/index.html",
+    "main.d28ac45c.css.map": "/product-page/static/css/main.d28ac45c.css.map",
+    "main.1608bb3b.js.map": "/product-page/static/js/main.1608bb3b.js.map",
+    "453.b970d112.chunk.js.map": "/product-page/static/js/453.b970d112.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d28ac45c.css",
+    "static/js/main.1608bb3b.js"
+  ]
+}
