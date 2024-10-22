@@ -1,5 +1,6 @@
 import React from 'react';
 
+//displays the summary of the selected product order
 const OrderInfoComponent = ({ product }) => {
     const { name, price, quantity } = product;
     const totalPrice = price * quantity;
