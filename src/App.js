@@ -3,6 +3,8 @@ import Header from './components/HeaderComponent';
 import vaahtera from './components/vaahtera.webp';
 import ProductComponent from './components/ProductFormComponent';
 import OrderInfoComponent from './components/OrderInfoComponent';
+import CatFactPage from './OpenData/CatFactPage';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
 function App() {
@@ -17,6 +19,44 @@ function App() {
    quantity: 1
 });
 
+return (
+  <Router>
+    <div className="App">
+      <nav>
+        <ul>
+          <li>
+            <Link to="/products">Products</Link>
+          </li>
+          <li>
+            <Link to="/cat-facts">Cat Facts</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/products" element={
+          <div>
+            <Header image={vaahtera} title="My product page" />
+            <ProductComponent
+              products={products}
+              selectedProduct={selectedProduct}
+              setSelectedProduct={setSelectedProduct}
+            />
+            <OrderInfoComponent product={selectedProduct} />
+          </div>
+        } />
+
+        <Route path="/cat-facts" element={<CatFactPage />} />
+      </Routes>
+    </div>
+  </Router>
+);
+}
+
+export default App;
+
+{/* back-up plan, pls ingore this
+  
   return (
       <div className="App">
           <Header image={vaahtera} title="My product page" />
@@ -29,4 +69,4 @@ function App() {
       </div>
   );
 }
-export default App;
+export default App;*/}
