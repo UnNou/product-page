@@ -7,18 +7,21 @@ import CatFactPage from './OpenData/CatFactPage';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
+//define and array of products -> name and prices
 function App() {
   const products = [
     { name: 'Corsair K65 RGB', price: 130 },
     { name: 'Corsair Vengeance LPX', price: 80 },
     { name: 'Corsair H100i', price: 150 }
 ];
+//useState hook to manage select product
   const [selectedProduct, setSelectedProduct] = useState({
    name: products[0].name,
    price: products[0].price,
    quantity: 1
 });
 
+// wraps the application in a router for navigation
 return (
   <Router>
     <div className="App">

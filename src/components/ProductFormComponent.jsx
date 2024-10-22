@@ -1,14 +1,16 @@
 import React from 'react';
 
+//allows to select a product and adjust its quantity
 const ProductComponent = ({ products, selectedProduct, setSelectedProduct }) => {
 
+    //halde the change fo select a product from the dropdown
     const handleProductChange = (event) => {
         const selectedIndex = event.target.value;
         const selectedProduct = products[selectedIndex];
         setSelectedProduct({ ...selectedProduct, quantity: 1 });
     };
 
-    
+    // update the quantity of the selected product ensuring it's non-negative
     const handleQuantityChange = (change) => {
         setSelectedProduct((prev) => ({
             ...prev,

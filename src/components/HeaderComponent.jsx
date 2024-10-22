@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+//header comp. to display a title and an associated image
 const Header = ({ image, title }) => {
     return (
         <header className="header">
@@ -9,7 +10,7 @@ const Header = ({ image, title }) => {
         </header>
     );
 };
-
+// prop types validation for header component
 Header.propTypes = {
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
